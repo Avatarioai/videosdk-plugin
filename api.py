@@ -1,9 +1,6 @@
-import os
-import json
 import asyncio
 import aiohttp
 from typing import Dict, Union
-from datetime import datetime, timezone
 
 from videosdk import (
     MeetingConfig, 
@@ -49,7 +46,6 @@ class AvatarioParticipantHandler(ParticipantEventHandler):
             )
 
     async def get_output_audio(self, track):
-        last_audio_time = None
         while not self.ipc_data["kill_signal"].is_set():
             try:
                 frame = await asyncio.wait_for(
@@ -82,7 +78,6 @@ class AvatarioMeetingHandler(MeetingEventHandler):
         self.meeting = meeting
         self._ipc_data = ipc_queues
         self.participant_joined = participant_joined
-        self.prev_state = "filler"
 
     async def send_tts_audio(self):
         while True:

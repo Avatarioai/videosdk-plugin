@@ -1,21 +1,16 @@
 import os
 import time
 import asyncio
-import json
 import fractions
-from dataclasses import dataclass, asdict
-from typing import Awaitable, Optional, Tuple
-from httpx import AsyncClient
-from av import AudioFrame
-from av import VideoFrame
-from av.audio.resampler import AudioResampler
 import numpy as np
-from vsaiortc.mediastreams import MediaStreamError
 
+from dataclasses import dataclass, asdict
+from typing import Optional
+from av import AudioFrame, VideoFrame
+from vsaiortc.mediastreams import MediaStreamError
 from videosdk import CustomVideoTrack, CustomAudioTrack
 
 from api import AvatarioClient
-from datetime import datetime, timezone
 
 
 # --- Constants ---
@@ -286,7 +281,7 @@ class AvatarioAvatar:
             raise Exception(f"Failed to connect to Avatario servers. Last error: {self._last_error}")
         
         try:
-            response = await self.avatario_client.create_conversation(
+            await self.avatario_client.create_conversation(
                 video_info=asdict(self.video_info)
             )
             self.ready.set()
