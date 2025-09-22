@@ -36,4 +36,4 @@ python3 video_sdk_agent.py
                                                         2KYXH5#+6CLQOF9+! (7JWYRB60221.(%$(+,+-1.+,,-1434343;@JYfhaU
 
     ```
-- The datachannel is still broadcasting the audio bytes sent the entire room, which we should fix in case of 3 participant room usecase as it ends up being 2x costly.
+- The datachannel is still broadcasting the audio bytes to the entire room, which we should fix in case of 3 participant room usecase as it ends up being 2x costly.
