@@ -1,0 +1,8 @@
+videosdk==0.2.2
+videosdk-agents
+aiohttp
+videosdk-plugins-deepgram
+videosdk-plugins-openai
+videosdk-plugins-silero
+PyJWT
+werkzeug
