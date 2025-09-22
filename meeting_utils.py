@@ -1,5 +1,4 @@
 import os
-import json
 import datetime
 from typing import (
     Dict,
@@ -9,9 +8,6 @@ from typing import (
 
 import jwt
 import requests
-from werkzeug.datastructures import Authorization
-
-from videosdk import MeetingConfig, VideoSDK
 
 from dotenv import load_dotenv
 load_dotenv()
